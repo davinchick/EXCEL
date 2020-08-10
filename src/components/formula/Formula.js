@@ -20,4 +20,8 @@ export class Formula extends ExcelComponent{
   onInput(e){
 
   }
+
+  onClick(){
+
+  }
 }

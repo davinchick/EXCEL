@@ -11,8 +11,12 @@ class Dom {
     return this.$el.outerHTML.trim()
   }
 
-  on(){
+  on(eType, callback){
+    this.$el.addEventListener(eType, callback)
+  }
 
+  off(eType, callback){
+    this.$el.removeEventListener(eType, callback)
   }
 
   clear(){

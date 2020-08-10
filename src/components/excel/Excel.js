@@ -13,6 +13,7 @@ export class Excel {
         // debugger
         const $el =  $.create("div", Compon.className);
         const component = new Compon($el);
+
         $el.html(component.toHTML());
         $root.append($el)
         return component
