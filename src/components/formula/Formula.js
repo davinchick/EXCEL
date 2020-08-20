@@ -23,16 +23,14 @@ export class Formula extends ExcelComponent{
   init(){
     super.init()
     this.formula = this.$root.find('#formula')
+
     this.$on('tableSelect', $cell => {
       this.formula.text($cell.text())
     })
-    // this.$on('tableInput', $cell => {
-    //   this.formula.text($cell.text())
-    // })
-    this.$subscribe(state => {
-      console.log('update formula', state.currentText)
-      this.formula.text(state.currentText)
-    })
+  }
+
+  storeChanged(changes){
+    this.formula.text(changes)
   }
 
   onInput(e){
@@ -44,7 +42,7 @@ export class Formula extends ExcelComponent{
     const keys = ['Enter', 'Tab']
     if(keys.includes(e.key)){
       e.preventDefault()
-      this.$emit('formula.done')
+      this.$emit('formula:done')
     }
   }
 }

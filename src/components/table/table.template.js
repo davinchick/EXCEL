@@ -1,3 +1,6 @@
+import { stylesToString } from '../../core/utils'
+import { defaultStyles } from '../../constants'
+
 const CODES = {
   A: 65,
   Z: 90
@@ -18,13 +21,14 @@ function toCell(state, row){
   return function(_, col) {
     const id = `${row}:${col}`
     const data = state.dataState[id]
+    const styles = stylesToString({...defaultStyles, ...state.stylesState[id]})
     return `
         <div class="cell" contenteditable="true" 
             data-row="${row}" 
             data-col="${col}"
             data-type="cell"
             data-id="${id}"
-            style="width: ${getWidth(state.colState, col)}">
+            style="${styles} width: ${getWidth(state.colState, col)}">
             ${data || ''}</div>
     `
   }

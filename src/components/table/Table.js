@@ -5,6 +5,7 @@ import { isCell, matrix, nextSelector, shouldResize } from "./table.functions"
 import { TableSelection } from "./TableSelection"
 import { $ } from "../../core/dom"
 import * as actions from '../../redux/actions'
+import { defaultStyles } from "../../constants"
 
 export class Table extends ExcelComponent {
   static className = "excel__table";
@@ -36,17 +37,23 @@ export class Table extends ExcelComponent {
       console.log(text)
     })
 
-    this.$on('doneee', () => {
+    this.$on('formula:done', () => {
       this.selection.current.focus()
     })
-    // this.$subscribe(state => {
-    //   console.log(state)
-    // })
+    this.$on('toolbar:applyStyle', (val) => {
+      this.selection.applyStyle(stylvale)
+      this.$dispatch[actions.applyStyle({
+        val,
+        ids: this.selection.selectedIds
+      })]
+    })
   }
 
   selectCell(cell){
     this.selection.select(cell)
     this.$emit('tableSelect', cell)
+    const styles = cell.getStyles(Object.keys(defaultStyles))
+    this.$dispatch(actions.changeStyles(styles))
   }
 
   async resizeTable(e){
