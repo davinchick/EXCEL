@@ -33,10 +33,10 @@ export class Table extends ExcelComponent {
     this.selectCell(cell)
 
     this.$on('formula:input', text => {
-      this.selection.current.attr('data-value', text).text(parse(text))
-      this.selection.current.text(text)
+      this.selection.current
+        .attr('data-value', text)
+        .text(parse(text))
       this.updateTextinStore(text)
-      console.log(text)
     })
 
     this.$on('formula:done', () => {
