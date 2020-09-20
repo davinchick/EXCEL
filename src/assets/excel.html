@@ -10,35 +10,59 @@
 <body>
 
 <div id="app" class="container">
-    <div class="db">
-        <div class="db__header">
-            <h1>Dashboard Excel</h1>
-        </div>
-        <div class="db__new">
-            <div class="db__view">
-                <a href="#" class="db__create">New <br /> table</a>
+    <div class="excel">
+        <div class="excel__header">
+            <input type="text" value="New table" class="input" />
+            <div class="">
+                <div class="button">
+                    <i class="material-icons">delete</i>
+                </div>
+                <div class="button">
+                    <i class="material-icons">exit_to_app</i>
+                </div>
             </div>
         </div>
-        <div class="db__table db__view">
-            <div class="db__list-header">
-                <span>Name</span>
-                <span>Data open</span>
+        <div class="excel__toolbar">
+            <div class="button">
+                <i class="material-icons">format_align_left</i>
             </div>
-
-            <ul class="db__list">
-                <li class="db__record">
-                    <a href="#">Table 1</a>
-                    <strong>09.08.20</strong>
-                </li>
-                <li class="db__record">
-                    <a href="#">Table 2</a>
-                    <strong>09.08.20</strong>
-                </li>
-                <li class="db__record">
-                    <a href="#">Table 3</a>
-                    <strong>09.08.20</strong>
-                </li>
-            </ul>
+            <div class="button">
+                <i class="material-icons">format_align_center</i>
+            </div>
+            <div class="button">
+                <i class="material-icons">format_align_right</i>
+            </div>
+            <div class="button">
+                <i class="material-icons">format_bold</i>
+            </div>
+            <div class="button">
+                <i class="material-icons">format_italic</i>
+            </div>
+            <div class="button">
+                <i class="material-icons">format_underlined</i>
+            </div>
+        </div>
+        <div class="excel__formula">
+            <div class="info">fx</div>
+            <div class="input" contenteditable="true" spellcheck="false"></div>
+        </div>
+        <div class="excel__table">
+            <div class="row">
+                <div class="row-info">
+                </div>
+                <div class="row-data">
+                    <div class="column" contenteditable="true">A</div>
+                    <div class="column" contenteditable="true">B</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-info">1
+                </div>
+                <div class="row-data">
+                    <div class="cell selected" contenteditable="true"></div>
+                    <div class="cell" contenteditable="true"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

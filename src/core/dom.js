@@ -11,12 +11,17 @@ class Dom {
     return this.$el.outerHTML.trim()
   }
 
+  clear() { // clean up the page
+    this.html('')
+    return this
+  }
+
   on(eType, callback){
     this.$el.addEventListener(eType, callback)
   }
 
   text(text){
-    if(typeof text === 'string'){
+    if(typeof text !== 'undefined'){
       this.$el.textContent = text
       return this
     }
@@ -28,11 +33,6 @@ class Dom {
 
   off(eType, callback){
     this.$el.removeEventListener(eType, callback)
-  }
-
-  clear(){
-    this.html('')
-    return this
   }
 
   find(selector){
